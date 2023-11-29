@@ -1,4 +1,4 @@
-import { createHtml } from "./createHtml";
+import { logMovies } from "./services/movieService";
 import "/src/scss/main.scss";
 // import javascriptLogo from './javascript.svg'
 // import viteLogo from '/vite.svg'
@@ -97,13 +97,6 @@ import "/src/scss/main.scss";
 // }
 
 // Movies
-export async function logMovies() {
-  const response = await fetch(
-    "https://medieinstitutet-wie-products.azurewebsites.net/api/products"
-  );
-  const movies = await response.json();
 
-  createHtml(movies);
-}
 
 logMovies();
