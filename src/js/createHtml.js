@@ -1,5 +1,6 @@
 export function createHtml(movies) {
-    const header = document.createElement("h1");
+    const title = document.createElement("h1");
+    const headerElement = document.createElement('header')
     const movieWrapper = document.createElement("section");
     const movieContainer = document.createElement("section");
     const trailers = [
@@ -39,10 +40,20 @@ export function createHtml(movies) {
 
     movieContainer.classList.add("movieContainer");
     movieWrapper.classList.add("movieWrapper");
-    document.body.appendChild(header);
+    headerElement.classList.add('header')
+    title.innerHTML = "Movies";
+    document.body.appendChild(headerElement);
+    headerElement.appendChild(title)
     document.body.appendChild(movieWrapper);
-    header.innerHTML = "Movies";
     movieWrapper.appendChild(movieContainer);
+
+     
+setTimeout(() => {
+  
+  headerElement.classList.add('--hide')
+}, 3000);      
+      
+    
 
     for (let i = 0; i < movies.length; i++) {
       // const myMovies = movies[i];
@@ -112,18 +123,6 @@ export function createHtml(movies) {
         }
       });
 
-      // movieImageContainer.addEventListener('touchstart', () => {
-      //   // movieImageContainer.classList.add("card__mobileHover")
-      //   movieImageContainer.classList.add("trailer")
-      //   movieImage.classList.add("movieImage__hide")
-      //   movieImageContainer.appendChild(trailer)
-      // })
-      // movieImageContainer.addEventListener('touchend', () => {
-      //   // movieImageContainer.classList.remove("card__mobileHover")
-      //   movieImageContainer.classList.remove("trailer")
-      //   movieImage.classList.remove("movieImage__hide")
-      //   movieImageContainer.removeChild(trailer)
-      // })
 
       card.addEventListener("mouseenter", () => {
         if (!movieImageContainer.classList.contains("trailer")) {
@@ -186,7 +185,6 @@ export function createHtml(movies) {
         playBtn.classList.remove("visible");
       });
 
-      console.log(movies);
       movieContainer.appendChild(card);
       card.appendChild(movieTitle);
       card.appendChild(movieDescriptionContainer);
@@ -202,8 +200,5 @@ export function createHtml(movies) {
       card.appendChild(playBtn);
       playBtn.appendChild(playBtnImg);
     }
-    //   console.log(movies)
-    // const selectedMovies = movies.map((value) => value);
-    // console.log(Object.values(selectedMovies));
-    //   console.log(selectedMovies)
+
   }
