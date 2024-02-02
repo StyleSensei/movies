@@ -1,15 +1,17 @@
 import { defineConfig } from 'vite';
+import { viteStaticCopy } from 'vite-plugin-static-copy'
 // @ts-ignore
-import * as VitePluginCopy from 'vite-plugin-copy';
+
 
 // https://vitejs.dev/config/
 export default defineConfig({
   base: "/movies/",
   plugins: [
     // @ts-ignore
-    VitePluginCopy.copy({
-      patterns: [
-        { src: 'src/media/*', dest: 'dist/media' },
+    viteStaticCopy({
+      targets: [
+        { src: 'src/media/*', 
+        dest: 'assets/media' },
       ],
     }),
   ],
