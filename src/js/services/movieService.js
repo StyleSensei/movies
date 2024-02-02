@@ -11,6 +11,5 @@ export async function logMovies() {
       movie.imageUrl = "https://se.originalfilmart.com/cdn/shop/products/alien_1979_german_a1_original_film_art_5000x.jpg?v=1613719562"
     }
   });
-  console.log(movies)
   return movies;
 }
