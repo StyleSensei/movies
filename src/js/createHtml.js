@@ -81,12 +81,12 @@ export function createHtml(movies) {
       trailer.setAttribute("src", trailers[i]);
       trailer.classList.add("trailer");
       trailer.controls = true;
-      closeBtnImg.setAttribute("src", "../media/close-svgrepo-com.svg");
+      closeBtnImg.setAttribute("src", "../../media/close-svgrepo-com.svg");
       closeBtnImg.classList.add("closeBtnImg");
       closeBtn.classList.add("closeBtn");
       playBtnImg.setAttribute(
         "src",
-        "../media/play_circle_FILL0_wght400_GRAD0_opsz24.svg"
+        "../../media/play_circle_FILL0_wght400_GRAD0_opsz24.svg"
       );
       playBtnImg.classList.add("playBtnImg");
       playBtn.classList.add("playBtn");
