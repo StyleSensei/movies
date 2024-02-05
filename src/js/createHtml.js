@@ -72,6 +72,7 @@ export function createHtml(movies) {
       moviePrice.innerHTML = movies[i].price + 'kr';
 
       movieDescriptionShowMore.addEventListener('click', (e) => {
+        e.stopPropagation();
         e.target.classList.toggle('showFullDescription');
         movieDescriptionContainer.classList.toggle(
           'movieDescription__container--showfull'
@@ -92,44 +93,51 @@ export function createHtml(movies) {
       card.addEventListener('mouseleave', () => {
         playBtn.classList.remove('visible');
       });
+      card.addEventListener('click', () => showTrailer());
 
       const showTrailer = () => {
+        if (!movieImageContainer.classList.contains('trailer')) {
+          movieImageContainer.appendChild(trailer);
+        }
         movieImageContainer.classList.add('trailer');
         movieImage.classList.add('movieImage__hide');
-        movieImage.classList.toggle('expand');
-        movieImageContainer.classList.toggle('expand');
-        card.classList.toggle('expand');
-        trailer.classList.toggle('expand');
+        movieImage.classList.add('expand');
+        movieImageContainer.classList.add('expand');
+        card.classList.add('expand');
+        trailer.classList.add('expand');
         card.appendChild(closeBtn);
         closeBtn.appendChild(closeBtnImg);
-        movieImageContainer.appendChild(trailer);
         playBtn.classList.remove('visible');
       };
 
-      playBtn.addEventListener('click', () => {
+      playBtn.addEventListener('click', (e) => {
         showTrailer();
+        e.stopPropagation();
       });
 
-      movieImageContainer.addEventListener('click', () => {
+      movieImageContainer.addEventListener('click', (e) => {
         showTrailer();
+        e.stopPropagation;
       });
 
-      trailerBtn.addEventListener('click', () => {
+      trailerBtn.addEventListener('click', (e) => {
         showTrailer();
+        e.stopPropagation();
       });
 
-      closeBtn.addEventListener('click', () => {
+      closeBtn.addEventListener('click', (e) => {
         // movieImageContainer.classList.remove("card__mobileHover")
         movieImageContainer.classList.remove('trailer');
         movieImage.classList.remove('movieImage__hide');
         movieImageContainer.removeChild(trailer);
         movieImage.classList.remove('movieImage__hide');
-        movieImage.classList.toggle('expand');
-        movieImageContainer.classList.toggle('expand');
-        card.classList.toggle('expand');
-        trailer.classList.toggle('expand');
+        movieImage.classList.remove('expand');
+        movieImageContainer.classList.remove('expand');
+        card.classList.remove('expand');
+        trailer.classList.remove('expand');
         card.removeChild(closeBtn);
         playBtn.classList.remove('visible');
+        e.stopPropagation();
       });
 
       movieContainer.appendChild(card);
@@ -150,4 +158,3 @@ export function createHtml(movies) {
   };
   createCards();
 }
-
