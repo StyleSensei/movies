@@ -383,26 +383,30 @@ iframe {
 }
 .closeBtn {
   z-index: 4;
-}
-.closeBtnImg {
   width: 30px;
   height: 30px;
   position: absolute;
   top: 8.5rem;
   right: 1.5rem;
-  background-color: white;
   border-radius: 100%;
   padding: 1px;
+  @media screen and (min-width: 768px) {
+    width: 60px;
+    height: 60px;
+
+  }
+}
+.closeBtnImg {
+  object-fit: contain;
+  width: 100%;
+
+  background-color: white;
+  border-radius: 100%;
   z-index: 2;
   &:hover {
     background-color: rgba(255, 255, 255, 0.8);
   }
-  @media screen and (min-width: 768px) {
-    width: 60px;
-    height: 60px;
-    top: 1rem;
-    right: 1rem;
-  }
+
 }
 .playBtn {
   position: absolute;
@@ -410,10 +414,8 @@ iframe {
   left: 50%;
   margin-right: -50%;
   transform: translate(-50%, -50%);
-  // width: 100%;
   background-color: transparent;
   padding: 0;
-  // transition: unset;
   opacity: 0;
   transition: opacity 1s;
   &:hover {
