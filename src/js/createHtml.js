@@ -5,6 +5,7 @@ export function createHtml(movies) {
   const headerElement = document.createElement('header');
   const movieWrapper = document.createElement('section');
   const movieContainer = document.createElement('section');
+  const spacerElement = document.createElement('div');
 
   movieContainer.classList.add('movieContainer');
   movieWrapper.classList.add('movieWrapper');
@@ -14,6 +15,8 @@ export function createHtml(movies) {
   headerElement.appendChild(title);
   document.body.appendChild(movieWrapper);
   movieWrapper.appendChild(movieContainer);
+  spacerElement.classList.add('movie-container-spacer');
+
 
   const createCards = () => {
     for (let i = 0; i < movies.length; i++) {
@@ -34,6 +37,8 @@ export function createHtml(movies) {
       const closeBtnImg = document.createElement('img');
       const playBtn = document.createElement('button');
       const playBtnImg = document.createElement('img');
+
+
 
       card.id = 'card' + (i + 1);
       card.classList.add('card');
@@ -157,4 +162,7 @@ export function createHtml(movies) {
     }
   };
   createCards();
+  
+  
+  movieContainer.appendChild(spacerElement);
 }

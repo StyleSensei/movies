@@ -1,5 +1,3 @@
-
-
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -28,16 +26,16 @@ a:hover {
 
 body {
   margin: 0;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   place-items: center;
-  // min-width: 320px;
-  // height: 100vh;
   overflow: hidden;
   animation: blur 1s cubic-bezier(0.95, 0.05, 0.795, 0.035) reverse;
 }
+
 @keyframes blur {
   100% {
     filter: blur(10rem);
@@ -53,15 +51,15 @@ body {
   margin: 10px;
 }
 
-header.header{
+header.header {
   position: relative;
-  // top:20px;
   height: 3vh;
 
   // height: 6rem;
   display: none;
-  &.--hide{
-display: none;
+
+  &.--hide {
+    display: none;
   }
 }
 
@@ -73,12 +71,7 @@ h1 {
   font-weight: 900;
 }
 
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
+
 
 .logo {
   height: 6em;
@@ -126,6 +119,7 @@ form {
   justify-content: center;
   gap: 1rem;
 }
+
 input,
 button {
   border-radius: 100px;
@@ -137,16 +131,19 @@ button {
   display: flex;
   flex-direction: column;
 }
+
 #colorSection {
   margin: 5rem 0;
   width: 100%;
 }
+
 #colorRow {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
 }
+
 .reply {
   display: flex;
   align-items: center;
@@ -156,7 +153,8 @@ button {
   box-sizing: border-box;
   color: black;
 }
-.reply > * {
+
+.reply>* {
   padding: 0.5rem 1rem;
 }
 
@@ -172,6 +170,7 @@ button {
   --image-width: 300px;
   --image-height: calc(var(--image-width) * 1.7);
 }
+
 //movies
 $paddingCard: 1rem;
 $borderRadiusCard: calc($paddingCard * 2);
@@ -185,50 +184,59 @@ $imgHeight: calc($imgWidth * 1.52);
   width: 100%;
   z-index: 99;
   position: relative;
-  height: 100vh;
-  // overflow: hidden;
-  padding: 2rem 0;
-  margin-bottom: 10rem;
+  height: 100%;
+  overflow: hidden;
+  padding: 2rem 2rem;
 }
 
 .movieContainer {
   display: grid;
   overflow-x: scroll;
+  overflow-y: auto;
   flex-flow: column nowrap;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   justify-content: flex-start;
   width: 100%;
+  height: 100%;
   gap: 1rem;
   padding: 1rem;
   margin-bottom: 8rem;
   scroll-snap-type: x mandatory;
 }
+
+.movie-container-spacer {
+  grid-column: 1 / -1;
+  height: 1rem;
+  width: 100%;
+  visibility: hidden;
+}
+
 .card {
   width: $imgWidth;
   display: flex;
   position: relative;
   flex-flow: column wrap;
-  
+
   object-fit: contain;
   background-color: #1a1a1a;
   padding: $paddingCard;
   border-radius: calc($borderRadiusCard);
   cursor: pointer;
-  scroll-snap-align:center;
+  scroll-snap-align: center;
   scroll-snap-stop: always;
   animation: zoom 1s ease-in-out reverse;
 
-  // transition: all bcubic-bezier(0.075, 0.82, 0.165, 1);
   @media screen and (min-width: 768px) {
     &:hover {
-      // box-shadow: -5px -5px 10px rgba($color: #000000, $alpha: .7);
       outline: 3px solid blue;
     }
   }
+
   &__mobileHover {
     outline: 3px solid blue;
   }
 }
+
 .movieImageContainer {
   height: $imgHeight;
   display: flex;
@@ -236,7 +244,7 @@ $imgHeight: calc($imgWidth * 1.52);
   width: 100%;
   overflow: hidden;
 }
-// animate zoom on every card
+
 @keyframes zoom {
   100% {
     transform: scale(0.9);
@@ -257,10 +265,12 @@ $imgHeight: calc($imgWidth * 1.52);
 
   object-fit: cover;
   border-radius: calc($borderRadiusCard / 2);
+
   &__hide {
     display: none;
   }
 }
+
 .trailer,
 iframe {
   @extend .movieImage;
@@ -270,12 +280,15 @@ iframe {
   border: none;
   outline: none;
   opacity: 1;
+
   &:hover {
     transition: all 3s;
     opacity: 1;
   }
 }
+
 @media screen and (min-width: 768px) {
+
   .movieImage.expand,
   .movieImageContainer.expand,
   .card.expand,
@@ -283,6 +296,7 @@ iframe {
     width: 80vw;
     max-width: 1240px;
   }
+
   .card {
     transition: width cubic-bezier(0.95, 0.05, 0.795, 0.035) 0.3s;
   }
@@ -310,6 +324,7 @@ iframe {
   background-color: #1a1a1a;
   transition: height ease-in-out 0.3s;
   z-index: 2;
+
   &--showfull {
     height: 70%;
   }
@@ -321,8 +336,10 @@ iframe {
   overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 1;
+  line-clamp: 1;
   -webkit-box-orient: vertical;
   bottom: 0.7rem;
+
   &__showmore {
     position: absolute;
     right: 1rem;
@@ -331,21 +348,24 @@ iframe {
     max-width: 100%;
     // margin-left: 20px;
   }
+
   &--showfull {
     -webkit-line-clamp: 10;
+    line-clamp: 10;
   }
 }
+
 .moviePrice {
   position: relative;
   display: inline-block;
   font-size: 2rem;
   font-weight: 100;
-  // background-color: blue;
   border: solid blue 2px;
   border-radius: 20px 0;
   bottom: 2rem;
   padding: 0.5rem;
 }
+
 .movieYear {
   display: grid;
   grid-area: yr;
@@ -374,13 +394,14 @@ iframe {
   transition: all 0.3s;
   font-size: 1rem;
 }
+
 .trailerBtn {
   @extend .streamNowBtn;
   background-color: unset;
   outline: 1px solid blue;
-  // flex-shrink: 2;
   margin-right: 1rem;
 }
+
 .closeBtn {
   z-index: 4;
   width: 30px;
@@ -390,12 +411,14 @@ iframe {
   right: 1.5rem;
   border-radius: 100%;
   padding: 1px;
+
   @media screen and (min-width: 768px) {
     width: 60px;
     height: 60px;
 
   }
 }
+
 .closeBtnImg {
   object-fit: contain;
   width: 100%;
@@ -403,11 +426,13 @@ iframe {
   background-color: white;
   border-radius: 100%;
   z-index: 2;
+
   &:hover {
     background-color: rgba(255, 255, 255, 0.8);
   }
 
 }
+
 .playBtn {
   position: absolute;
   top: 60%;
@@ -418,20 +443,20 @@ iframe {
   padding: 0;
   opacity: 0;
   transition: opacity 1s;
+
   &:hover {
     border-color: unset;
     border: unset;
   }
 }
+
 .playBtn.visible {
   opacity: 1;
 }
 
 .playBtnImg {
-  // position: absolute;
   filter: invert(100);
   opacity: 0.5;
   width: auto;
   height: 70px;
-  //  visibility: hidden;
 }
