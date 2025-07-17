@@ -55,7 +55,6 @@ header.header {
   position: relative;
   height: 3vh;
 
-  // height: 6rem;
   display: none;
 
   &.--hide {
@@ -274,7 +273,6 @@ $imgHeight: calc($imgWidth * 1.52);
 .trailer,
 iframe {
   @extend .movieImage;
-  // height: 1000px;
   object-fit: cover;
   overflow: hidden;
   border: none;
@@ -346,7 +344,6 @@ iframe {
     bottom: 0.5rem;
     overflow: initial;
     max-width: 100%;
-    // margin-left: 20px;
   }
 
   &--showfull {
